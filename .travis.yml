@@ -9,8 +9,8 @@ matrix:
       before_script:
         - npm install -g @angular/cli
       script:
-        - ng lint
-        - ng build --prod --base-href $base_href
+        - ng lint --base-href TurtleCMS/ClientApp
+        - ng build --prod --base-href TurtleCMS/ClientApp
 
 
     - language: csharp
