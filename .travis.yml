@@ -1,4 +1,4 @@
-matrix:
+jobs:
   include:
     - language: node_js
       node_js:
@@ -27,3 +27,7 @@ matrix:
       script:
         - dotnet restore TurtleCMS
         - dotnet build TurtleCMS
+after_success:
+  - echo dotnet test and npm test succeeded
+after_failure:
+  - echo dotnet test or npm test failed
