@@ -10,7 +10,7 @@ matrix:
         - npm install
       before_script:
         - npm install -g @angular/cli
-        - cd TurtleCMS\ClientApp
+        - "cd TurtleCMS\ClientApp"
       script:
         - ng lint
         - ng build --prod
