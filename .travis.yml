@@ -1,0 +1,24 @@
+dist: trusty
+sudo: required
+language: csharp
+mono: none
+dotnet: 1.0.1
+branches:
+  only:
+  - master
+install:
+  - dotnet restore
+  - nvm install 12.14.0
+  - nvm use 12.14.0
+  - npm install
+before_script:
+  - npm install -g @angular/cli
+script:    
+- dotnet test
+- npm test
+- ng lint
+- ng build --prod --base-href https://github.com/CaptainPowerTurtle/TurtleCMS
+after_success:
+  - echo dotnet test and npm test succeeded
+after_failure:
+  - echo dotnet test or npm test failed
