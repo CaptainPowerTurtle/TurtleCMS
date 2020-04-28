@@ -10,10 +10,9 @@ matrix:
         - npm install
       before_script:
         - npm install -g @angular/cli
-        - "cd TurtleCMS\ClientApp"
       script:
         - ng lint
-        - ng build --prod
+        - ng build --prod TurtleCMS\ClientApp
 
 
     - language: csharp
