@@ -1,4 +1,4 @@
-jobs:
+matrix:
   include:
     - language: node_js
       node_js:
@@ -10,7 +10,7 @@ jobs:
         - npm install
       before_script:
         - npm install -g @angular/cli
-        - "cd TurtleCMS\ClientApp"
+        - cd TurtleCMS\ClientApp
       script:
         - ng lint
         - ng build --prod
@@ -27,7 +27,5 @@ jobs:
       script:
         - dotnet restore TurtleCMS
         - dotnet build TurtleCMS
-after_success:
-  - echo dotnet test and npm test succeeded
-after_failure:
-  - echo dotnet test or npm test failed
+notifications:
+  email: false
