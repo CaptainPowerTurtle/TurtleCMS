@@ -6,13 +6,11 @@ matrix:
       cache:
         directories:
           - "node_modules"
-      install:
-        - npm install
       before_script:
         - npm install -g @angular/cli
       script:
         - ng lint
-        - ng build --prod TurtleCMS\ClientApp
+        - ng build --prod --base-href $base_href
 
 
     - language: csharp
