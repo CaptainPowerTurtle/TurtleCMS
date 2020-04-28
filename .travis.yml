@@ -13,10 +13,16 @@ install:
   - npm install
 before_script:
   - npm install -g @angular/cli
-script:    
-- dotnet test
-- ng lint
-- ng build --prod --base-href https://github.com/CaptainPowerTurtle/TurtleCMS
+jobs:
+  include:
+    - stage: compile
+      script:
+        - cd TurtleCMS
+        - dotnet build
+    - stage: compile
+      script:
+        - ng lint
+        - ng build --prod --base-href https://github.com/CaptainPowerTurtle/TurtleCMS
 after_success:
   - echo dotnet test and npm test succeeded
 after_failure:
