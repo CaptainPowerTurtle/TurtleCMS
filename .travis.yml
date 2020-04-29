@@ -7,10 +7,10 @@ matrix:
         directories:
           - "node_modules"
       before_script:
+        - cd TurtleCMS/ClientApp
         - npm install -g @angular/cli
       script:
-        - ng lint --base-href TurtleCMS/ClientApp
-        - ng build --prod --base-href TurtleCMS/ClientApp
+        - npm run build --prod
 
 
     - language: csharp
